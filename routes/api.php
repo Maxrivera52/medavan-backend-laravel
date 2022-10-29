@@ -24,7 +24,8 @@ use App\Http\Controllers\{
     PaymentController,
     TagController,
     ParrillaController,
-    SedeController
+    SedeController,
+    SupplierMaterialDetailController
 };
 use Illuminate\Support\Facades\Artisan;
 
@@ -203,4 +204,11 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::put('/sede/{id}', [SedeController::class, 'update']);
     Route::delete('/sede/{id}', [SedeController::class, 'delete']);
     Route::get('/sede/{id}', [SedeController::class, 'findById']);
+
+    //ALL: SupplierMaterialDetail
+    Route::get('/suppliermaterialdetail', [SupplierMaterialDetailController::class, 'listAll']);
+    Route::post('/suppliermaterialdetail', [SupplierMaterialDetailController::class, 'create']);
+    Route::put('/suppliermaterialdetail/{id}', [SupplierMaterialDetailController::class, 'update']);
+    Route::delete('/suppliermaterialdetail/{id}', [SupplierMaterialDetailController::class, 'delete']);
+    Route::get('/suppliermaterialdetail/{id}', [SupplierMaterialDetailController::class, 'findById']);
 });

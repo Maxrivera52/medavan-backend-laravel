@@ -25,7 +25,8 @@ use App\Interfaces\{
     PaymentRepositoryInterface,
     TagRepositoryInterface,
     ParrillaRepositoryInterface,
-    SedeRepositoryInterface
+    SedeRepositoryInterface,
+    SupplierMaterialDetailRepositoryInterface
 };
 use App\Repositories\{
     BaseRepository,
@@ -49,7 +50,8 @@ use App\Repositories\{
     PaymentRepository,
     TagRepository,
     ParrillaRepository,
-    SedeRepository
+    SedeRepository,
+    SupplierMaterialDetailRepository
 };
 
 
@@ -83,6 +85,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(TagRepositoryInterface::class, TagRepository::class);
         $this->app->bind(ParrillaRepositoryInterface::class, ParrillaRepository::class);
         $this->app->bind(SedeRepositoryInterface::class, SedeRepository::class);
+        $this->app->bind(SupplierMaterialDetailRepositoryInterface::class, SupplierMaterialDetailRepository::class);
     }
 
     /**
