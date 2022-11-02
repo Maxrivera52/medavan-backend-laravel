@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Resources\ResponseResource;
 use App\Http\Resources\SupplierCollection;
+use App\Http\Resources\SupplierMaterialDetailCollection;
 use App\Interfaces\SupplierMaterialDetailRepositoryInterface;
 use App\Interfaces\SupplierRepositoryInterface;
 use Illuminate\Support\Facades\DB;
@@ -71,6 +72,29 @@ class SupplierController extends Controller
         //$this->supplierMaterialDetailRepository->deleteByIdProv($id);
         error_log(json_encode($request));
         DB::table("supplier_material_details")->where("idsupplier",$id)->delete();
+
+
+        error_log(json_encode($request->listMaterials));
+        $reqCop = json_encode($request->listMaterials);
+        //delete property
+        unset($request->listMaterials);
+
+        $reqCop = json_decode($reqCop);
+        //save into supplier met detail
+        $listsuppmatdet = [];
+        foreach($reqCop as $key=>$it){
+            $listsuppmatdet[] = array("idsupplier"=>$id,"idmaterial"=>$it->idMaterial) ;
+        }
+        error_log(">>>>>>".json_encode($listsuppmatdet));
+
+        //save
+        $this->createMatDet($listsuppmatdet);
+
+
+
+
+
+
         return  ResponseResource::Response($this->repository->update($id, $request->all()), $config);
     }
 
@@ -92,5 +116,8 @@ class SupplierController extends Controller
         return  ResponseResource::Response($this->repository->findById($id), $config);
     }
 
-    
+    public function listAllMaterialDetail($id){
+        $model = DB::table("supplier_material_details")->where("idsupplier",$id)->get();
+        return new SupplierMaterialDetailCollection($model);
+    }
 }

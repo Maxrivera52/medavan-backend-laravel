@@ -206,6 +206,8 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('/sede/{id}', [SedeController::class, 'findById']);
 
     //ALL: SupplierMaterialDetail
+    Route::get('/suppliermaterialdetailbyidprov', [SupplierController::class, 'listAllMaterialDetail']);
+
     Route::get('/suppliermaterialdetail', [SupplierMaterialDetailController::class, 'listAll']);
     Route::post('/suppliermaterialdetail', [SupplierMaterialDetailController::class, 'create']);
     Route::put('/suppliermaterialdetail/{id}', [SupplierMaterialDetailController::class, 'update']);
