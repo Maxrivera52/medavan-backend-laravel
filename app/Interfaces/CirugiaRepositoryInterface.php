@@ -2,7 +2,7 @@
 namespace App\Interfaces;
 
 interface CirugiaRepositoryInterface extends EloquentRepositoryInterface {
-    public function findbyIdSpecialty($id);
+    //public function findbyIdSpecialty($id);
 }
 
 

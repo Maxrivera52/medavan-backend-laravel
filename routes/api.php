@@ -12,6 +12,7 @@ use App\Http\Controllers\{
     AnesthesiaController,
     CirugiaDetailAnesthesiaController,
     CirugiaDetailEquipmentController,
+    CirugiaDetailSpecialtyController,
     DoctorxpreferenceController,
     DocumenttypeController,
     MaterialController,
@@ -99,7 +100,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::put('/cirugia/{id}', [CirugiaController::class, 'update']);
     Route::delete('/cirugia/{id}', [CirugiaController::class, 'delete']);
     Route::get('/cirugia/{id}', [CirugiaController::class, 'findById']);
-    Route::get('/cirugia/specialty/{id}', [CirugiaController::class, 'findbyIdSpecialty']);
+    //Route::get('/cirugia/specialty/{id}', [CirugiaController::class, 'findbyIdSpecialty']);
 
     //ALL:ANESTHESIA
     Route::get('/anesthesia', [AnesthesiaController::class, 'listAll']);
@@ -238,4 +239,11 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post('/cirugiadetailequipment', [CirugiaDetailEquipmentController::class, 'create']);
     Route::put('/cirugiadetailequipment/{id}', [CirugiaDetailEquipmentController::class, 'update']);
     Route::delete('/cirugiadetailequipment/{id}', [CirugiaDetailEquipmentController::class, 'delete']);
+
+    //CirugiaDetailSpecialty
+    Route::get('/cirugiadetailspecialty/{id}', [CirugiaDetailSpecialtyController::class, 'listByCirugia']);
+    Route::get('/cirugiadetailspecialty', [CirugiaDetailSpecialtyController::class, 'listAll']);
+    Route::post('/cirugiadetailspecialty', [CirugiaDetailSpecialtyController::class, 'create']);
+    Route::put('/cirugiadetailspecialty/{id}', [CirugiaDetailSpecialtyController::class, 'update']);
+    Route::delete('/cirugiadetailspecialty/{id}', [CirugiaDetailSpecialtyController::class, 'delete']);
 });

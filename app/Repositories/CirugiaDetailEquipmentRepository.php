@@ -21,4 +21,6 @@ class CirugiaDetailEquipmentRepository extends BaseRepository implements  Cirugi
     {
         $this->model = $model;
     }
+
+//    
 }

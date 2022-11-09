@@ -32,7 +32,7 @@ class CirugiaController extends Controller
 
     public function listAll(Request $request)
     {
-        return new  CirugiaCollection($this->repository->all(['*'], ['specialty']));
+    return new  CirugiaCollection($this->repository->all(['*']/*, ['specialty']*/));
     }
 
     public function delete($id)
@@ -59,7 +59,7 @@ class CirugiaController extends Controller
     }
     public function findbyIdSpecialty($id)
     {
-        $cirurgias = $this->repository->findbyIdSpecialty($id);
+        $cirurgias = $this->repository->findbyId/*Specialty*/($id);
 
         if ($id != 0) {
             $data = array(
