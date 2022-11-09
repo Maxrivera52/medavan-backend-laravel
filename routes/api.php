@@ -21,6 +21,7 @@ use App\Http\Controllers\{
     MedicalEventController,
     EquipmentController,
     DiagnosticController,
+    DiagnosticDetailSpecialtysController,
     PaymentController,
     TagController,
     ParrillaController,
@@ -213,4 +214,12 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::put('/suppliermaterialdetail/{id}', [SupplierMaterialDetailController::class, 'update']);
     Route::delete('/suppliermaterialdetail/{id}', [SupplierMaterialDetailController::class, 'delete']);
     Route::get('/suppliermaterialdetail/{id}', [SupplierMaterialDetailController::class, 'findById']);
+
+    //DiagnosticDetailSpecialtys
+    Route::get('/diagnosticdetailspecialtys/{id}', [DiagnosticDetailSpecialtysController::class, 'listByDiagnostic']);
+    Route::get('/diagnosticdetailspecialtys', [DiagnosticDetailSpecialtysController::class, 'listAll']);
+    Route::post('/diagnosticdetailspecialtys', [DiagnosticDetailSpecialtysController::class, 'create']);
+    Route::put('/diagnosticdetailspecialtys/{id}', [DiagnosticDetailSpecialtysController::class, 'update']);
+    Route::delete('/diagnosticdetailspecialtys/{id}', [DiagnosticDetailSpecialtysController::class, 'delete']);
+    //Route::get('/diagnosticdetailspecialtys/{id}', [DiagnosticDetailSpecialtysController::class, 'findById']);
 });

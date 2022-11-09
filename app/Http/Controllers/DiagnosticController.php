@@ -41,7 +41,7 @@ class DiagnosticController extends Controller
 
     public function listAll(Request $request)
     {
-        return new  DiagnosticCollection($this->repository->all(['*'], ['specialty']));
+    return new  DiagnosticCollection($this->repository->all(['*']/*, ['specialty']*/));
     }
 
     public function delete($id)
@@ -58,7 +58,7 @@ class DiagnosticController extends Controller
     }
     public function findbyIdSpecialty($id)
     {
-        $diagnosticos = $this->repository->findbyIdSpecialty($id);
+        $diagnosticos = $this->repository->findbyId/*Specialty*/($id);
 
         if ($id != 0) {
             $data = array(

@@ -58,4 +58,9 @@ final class ResponseResource
             $data
         );
     }
+
+    public static function JsonMessageResponse($id,$message,$code){
+        return json_encode(array("id"=>$id,"message"=>$message,"code"=>$code));
+    }
+
 }

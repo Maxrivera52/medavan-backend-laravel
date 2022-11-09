@@ -34,16 +34,17 @@ class Diagnostic extends Model
     /**
      * @var array
      */
-    protected $fillable = ['idspecialty', 'description', 'enable', 'created_at', 'updated_at'];
+    protected $fillable = ['description', 'enable', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    /*
     public function specialty()
     {
         return $this->belongsTo('App\Models\Specialty', 'idspecialty', 'idspecialty');
     }
-
+*/
     protected static function booted()
     {
         static::addGlobalScope(new EnableScope);
