@@ -12,6 +12,7 @@ use App\Interfaces\{
     DiagnosticRepositoryInterface,
     CirugiaRepositoryInterface,
     AnesthesiaRepositoryInterface,
+    CirugiaDetailAnesthesiaRepositoryInterface,
     DiagnosticDetailSpecialtysRepositoryInterface,
     DoctorxpreferenceRepositoryInterface,
     DocumenttypeRepositoryInterface,
@@ -38,6 +39,7 @@ use App\Repositories\{
     DiagnosticRepository,
     CirugiaRepository,
     AnesthesiaRepository,
+    CirugiaDetailAnesthesiaRepository,
     DiagnosticDetailSpecialtysRepository,
     DoctorxpreferenceRepository,
     DocumenttypeRepository,
@@ -89,6 +91,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(SedeRepositoryInterface::class, SedeRepository::class);
         $this->app->bind(SupplierMaterialDetailRepositoryInterface::class, SupplierMaterialDetailRepository::class);
         $this->app->bind(DiagnosticDetailSpecialtysRepositoryInterface::class, DiagnosticDetailSpecialtysRepository::class);
+        $this->app->bind(CirugiaDetailAnesthesiaRepositoryInterface::class, CirugiaDetailAnesthesiaRepository::class);
+        
     }
 
     /**

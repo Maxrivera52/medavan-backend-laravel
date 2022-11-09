@@ -10,6 +10,7 @@ use App\Http\Controllers\{
     SupplierController,
     CirugiaController,
     AnesthesiaController,
+    CirugiaDetailAnesthesiaController,
     DoctorxpreferenceController,
     DocumenttypeController,
     MaterialController,
@@ -222,4 +223,11 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::put('/diagnosticdetailspecialtys/{id}', [DiagnosticDetailSpecialtysController::class, 'update']);
     Route::delete('/diagnosticdetailspecialtys/{id}', [DiagnosticDetailSpecialtysController::class, 'delete']);
     //Route::get('/diagnosticdetailspecialtys/{id}', [DiagnosticDetailSpecialtysController::class, 'findById']);
+
+    //CirugiaDetailAnesthesia
+    Route::get('/cirugiadetailanesthesia/{id}', [CirugiaDetailAnesthesiaController::class, 'listByCirugia']);
+    Route::get('/cirugiadetailanesthesia', [CirugiaDetailAnesthesiaController::class, 'listAll']);
+    Route::post('/cirugiadetailanesthesia', [CirugiaDetailAnesthesiaController::class, 'create']);
+    Route::put('/cirugiadetailanesthesia/{id}', [CirugiaDetailAnesthesiaController::class, 'update']);
+    Route::delete('/cirugiadetailanesthesia/{id}', [CirugiaDetailAnesthesiaController::class, 'delete']);
 });
