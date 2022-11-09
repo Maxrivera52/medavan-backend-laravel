@@ -11,6 +11,7 @@ use App\Http\Controllers\{
     CirugiaController,
     AnesthesiaController,
     CirugiaDetailAnesthesiaController,
+    CirugiaDetailEquipmentController,
     DoctorxpreferenceController,
     DocumenttypeController,
     MaterialController,
@@ -230,4 +231,11 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post('/cirugiadetailanesthesia', [CirugiaDetailAnesthesiaController::class, 'create']);
     Route::put('/cirugiadetailanesthesia/{id}', [CirugiaDetailAnesthesiaController::class, 'update']);
     Route::delete('/cirugiadetailanesthesia/{id}', [CirugiaDetailAnesthesiaController::class, 'delete']);
+
+    //CirugiaDetailEquipment
+    Route::get('/cirugiadetailequipment/{id}', [CirugiaDetailEquipmentController::class, 'listByCirugia']);
+    Route::get('/cirugiadetailequipment', [CirugiaDetailEquipmentController::class, 'listAll']);
+    Route::post('/cirugiadetailequipment', [CirugiaDetailEquipmentController::class, 'create']);
+    Route::put('/cirugiadetailequipment/{id}', [CirugiaDetailEquipmentController::class, 'update']);
+    Route::delete('/cirugiadetailequipment/{id}', [CirugiaDetailEquipmentController::class, 'delete']);
 });
